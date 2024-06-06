@@ -1,0 +1,50 @@
+= API Documentation 
+ 
+== create client
+.request
+include::{snippets}/create-client/http-request.adoc[]
+
+ 
+.response
+include::{snippets}\create-client\http-response.adoc[]
+
+ 
+== delete client 
+ 
+.request
+include::{snippets}\delete-client\http-request.adoc[]
+
+ 
+.response
+include::{snippets}\delete-client\http-response.adoc[]
+
+ 
+== get all clients 
+ 
+.request
+include::{snippets}\get-all-clients\http-request.adoc[] 
+
+.response
+include::{snippets}\get-all-clients\http-response.adoc[] 
+
+ 
+== get client by id 
+ 
+.request
+include::{snippets}\get-client-by-id\http-request.adoc[] 
+
+ 
+.response
+include::{snippets}\get-client-by-id\http-response.adoc[] 
+
+ 
+== update client 
+ 
+.request
+include::{snippets}\update-client\http-request.adoc[] 
+
+ 
+.response
+include::{snippets}\update-client\http-response.adoc[] 
+
+ 
