@@ -7,7 +7,7 @@ import { useItemStore } from "../../../infrastructure/state/useItemStore";
 const CreateItem = ({ onClose }: { onClose: () => void }) => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState<number | undefined>(undefined);
-  const [imageUrl, setImageUrl] = useState<File | null>(null);
+  const [imgUrl, setimgUrl] = useState<File | null>(null);
   const { addItem } = useItemStore();
 
   const handleSave = async (e: React.FormEvent) => {
@@ -17,9 +17,9 @@ const CreateItem = ({ onClose }: { onClose: () => void }) => {
       name,
       code: null,
       price: price || 0,
-      imageUrl: imageUrl
-        ? URL.createObjectURL(imageUrl)
-        : "/public/images/default-product-image.png",
+      imgUrl: imgUrl
+        ? URL.createObjectURL(imgUrl)
+        : "/public/images/default-product-img.png",
       customerOrder: null,
     };
     try {
@@ -63,16 +63,16 @@ const CreateItem = ({ onClose }: { onClose: () => void }) => {
         </div>
         <div className="mb-4">
           <label
-            htmlFor="imageUrl"
+            htmlFor="imgUrl"
             className="block text-gray-700 font-bold mb-2"
           >
-            Image
+            img
           </label>
           <input
             type="file"
-            id="imageUrl"
+            id="imgUrl"
             onChange={(e) =>
-              setImageUrl(e.target.files ? e.target.files[0] : null)
+              setimgUrl(e.target.files ? e.target.files[0] : null)
             }
             className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
             placeholder="Select file"

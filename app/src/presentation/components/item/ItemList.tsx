@@ -46,7 +46,7 @@ const ItemList = () => {
         {items.map((item) => (
           <div key={item.id} className="bg-white p-4 rounded-lg shadow-md">
             <img
-              src={item.imageUrl}
+              src={item.imgUrl ?? "/images/default-product-image.png"}
               alt={item.name}
               className="w-full h-32 object-cover mb-4 rounded-lg"
             />
