@@ -4,7 +4,7 @@ Aquí tienes la documentación en Markdown para reconstruir el proyecto utilizan
 
 ### Prerrequisitos
 
-Asegúrate de tener las siguientes herramientas instaladas en tu máquina:
+Asegúrate de tener las siguientes herramientas:
 
 - [Node.js](https://nodejs.org/)
 - [npm](https://www.npmjs.com/)
