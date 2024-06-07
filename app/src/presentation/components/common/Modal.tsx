@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 interface ModalProps {
   isOpen: boolean;
@@ -6,24 +6,19 @@ interface ModalProps {
   children: React.ReactNode;
 }
 
-const Modal: React.FC<ModalProps> = ({ isOpen, children }) => {
-  const [showModal, setShowModal] = useState(isOpen);
-
-  useEffect(() => {
-    setShowModal(isOpen);
-  }, [isOpen]);
+const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
+  if (!isOpen) return null;
 
   return (
-    <>
-      {showModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center">
-          <div className="fixed inset-0 bg-black opacity-50"></div>
-          <div className="bg-white rounded-lg shadow-lg p-6 relative z-10 w-2/3 md:w-1/3">
-            {children}
-          </div>
-        </div>
-      )}
-    </>
+    <div className="fixed inset-0 flex items-center justify-center z-50">
+      <div
+        className="fixed inset-0 bg-black opacity-50"
+        onClick={onClose}
+      ></div>
+      <div className="bg-white rounded-lg shadow-lg p-6 relative z-10 w-2/3 md:w-1/3">
+        {children}
+      </div>
+    </div>
   );
 };
 

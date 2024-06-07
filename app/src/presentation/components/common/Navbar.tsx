@@ -58,8 +58,8 @@ const Navbar = () => {
               <Link to="/orders" className="text-[#222831] hover:text-blue-700">
                 Orders
               </Link>
-              <Link to="/items" className="text-[#222831] hover:text-blue-700">
-                Items
+              <Link to="/" className="text-[#222831] hover:text-blue-700">
+                Products
               </Link>
               <Cart />
             </div>

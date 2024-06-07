@@ -1,5 +1,5 @@
 import React from "react";
-import ItemList from "../components/item/ItemList";
+import ItemList from "../../components/item/ItemList";
 
 const HomePage: React.FC = () => {
   return (

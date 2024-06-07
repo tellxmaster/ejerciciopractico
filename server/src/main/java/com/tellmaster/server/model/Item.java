@@ -3,6 +3,8 @@ package com.tellmaster.server.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
 @Data
 public class Item {
@@ -16,7 +18,6 @@ public class Item {
     private String imageUrl;
     private double price;
 
-    @ManyToOne
-    @JoinColumn(name = "customer_order_id")
-    private CustomerOrder customerOrder;
+    @OneToMany(mappedBy = "item")
+    private List<OrderItem> orderItems;
 }

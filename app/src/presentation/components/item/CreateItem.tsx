@@ -66,7 +66,7 @@ const CreateItem = ({ onClose }: { onClose: () => void }) => {
             htmlFor="imgUrl"
             className="block text-gray-700 font-bold mb-2"
           >
-            img
+            Imagen
           </label>
           <input
             type="file"
@@ -80,15 +80,14 @@ const CreateItem = ({ onClose }: { onClose: () => void }) => {
         </div>
         <div className="flex justify-end mt-4 space-x-2">
           <button
-            type="button"
-            className="w-full bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-600 focus:outline-none"
             onClick={onClose}
+            className="bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-600 focus:outline-none"
           >
             Cancel
           </button>
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none"
+            className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none"
           >
             Save
           </button>

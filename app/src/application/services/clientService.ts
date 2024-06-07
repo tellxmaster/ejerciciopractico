@@ -14,7 +14,7 @@ export const createClientService = async (client: Client): Promise<Client> => {
   return await createClientRepository(client);
 };
 
-export const deleteClientService = async (clientId: string): Promise<void> => {
+export const deleteClientService = async (clientId: number): Promise<void> => {
   return await deleteClientRepository(clientId);
 };
 

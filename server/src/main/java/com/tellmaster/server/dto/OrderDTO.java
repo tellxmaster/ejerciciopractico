@@ -2,6 +2,7 @@ package com.tellmaster.server.dto;
 
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -11,5 +12,5 @@ public class OrderDTO {
     private String code;
     private Date date;
     private ClientDTO client;
-    private List<ItemDTO> items;
+    private List<OrderItemDTO> orderItems;
 }

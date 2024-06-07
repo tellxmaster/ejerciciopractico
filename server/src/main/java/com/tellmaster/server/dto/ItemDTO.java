@@ -2,6 +2,8 @@ package com.tellmaster.server.dto;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class ItemDTO {
     private Long id;
@@ -9,5 +11,5 @@ public class ItemDTO {
     private String imgUrl;
     private String name;
     private double price;
-    private OrderDTO order;
+    private List<OrderDTO> orders;
 }

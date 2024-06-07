@@ -1,13 +1,18 @@
 import { useEffect, useState } from "react";
-
-import Modal from "../common/Modal"; // Make sure the path is correct
+import Modal from "../common/Modal";
 import { useItemStore } from "../../../infrastructure/state/useItemStore";
 import { fetchItemsUseCase } from "../../../application/useCases/item/fetchItemUseCase";
 import CreateItem from "./CreateItem";
 
+import { Item } from "../../../domain/models/Item";
+import { useCartStore } from "../../../infrastructure/state/useCartStrore";
+import QuantitySelector from "../cart/QuantitySelector";
+
 const ItemList = () => {
   const { items, setItems } = useItemStore();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { addToCart } = useCartStore();
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     const loadItems = async () => {
@@ -28,6 +33,11 @@ const ItemList = () => {
 
   const closeModal = () => {
     setIsModalOpen(false);
+  };
+
+  const handleAddToCart = (item: Item, quantity: number) => {
+    addToCart(item, quantity);
+    setQuantity(1); // Reset quantity after adding to cart
   };
 
   return (
@@ -53,6 +63,16 @@ const ItemList = () => {
             <h2 className="text-lg font-bold">{item.name}</h2>
             <p className="text-gray-600">{item.code}</p>
             <p className="text-gray-900 font-bold">${item.price.toFixed(2)}</p>
+
+            <div className="flex items-center justify-between mt-4">
+              <QuantitySelector quantity={quantity} setQuantity={setQuantity} />
+              <button
+                onClick={() => handleAddToCart(item, quantity)}
+                className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 focus:outline-none"
+              >
+                Add to Cart
+              </button>
+            </div>
           </div>
         ))}
       </div>

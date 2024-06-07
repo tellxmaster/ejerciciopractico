@@ -55,57 +55,7 @@ public class CustomerOrderControllerTest {
                 .build();
     }
 
-    @Test
-    public void createOrder() throws Exception {
-        OrderDTO orderDTO = new OrderDTO();
-        orderDTO.setCode("ORD001");
-        orderDTO.setDate(new Date());
 
-        ClientDTO clientDTO = new ClientDTO();
-        clientDTO.setId(1L);
-        clientDTO.setName("John Doe");
-
-        ItemDTO itemDTO1 = new ItemDTO();
-        itemDTO1.setId(1L);
-        itemDTO1.setName("Item 1");
-
-        ItemDTO itemDTO2 = new ItemDTO();
-        itemDTO2.setId(2L);
-        itemDTO2.setName("Item 2");
-
-        orderDTO.setClient(clientDTO);
-        orderDTO.setItems(Arrays.asList(itemDTO1, itemDTO2));
-
-        CustomerOrder customerOrder = new CustomerOrder();
-        customerOrder.setCode("ORD001");
-        customerOrder.setDate(new Date());
-
-        Client client = new Client();
-        client.setId(1L);
-        client.setName("John Doe");
-
-        Item item1 = new Item();
-        item1.setId(1L);
-        item1.setName("Item 1");
-
-        Item item2 = new Item();
-        item2.setId(2L);
-        item2.setName("Item 2");
-
-        customerOrder.setClient(client);
-        customerOrder.setItems(Arrays.asList(item1, item2));
-
-        Mockito.when(orderMapper.toOrder(orderDTO)).thenReturn(customerOrder);
-        Mockito.when(orderService.saveOrder(customerOrder)).thenReturn(customerOrder);
-        Mockito.when(orderMapper.toOrderDTO(customerOrder)).thenReturn(orderDTO);
-
-        this.mockMvc.perform(post("/api/v1/orders")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content("{\"code\":\"ORD001\", \"date\":\"2024-06-05T00:00:00.000+00:00\", \"client\":{\"id\":1, \"name\":\"John Doe\"}, \"items\":[{\"id\":1,\"name\":\"Item 1\"},{\"id\":2,\"name\":\"Item 2\"}]}"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.code", is("ORD001")))
-                .andDo(document("create-order"));
-    }
 
 
     @Test

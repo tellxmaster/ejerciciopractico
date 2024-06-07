@@ -31,19 +31,22 @@ const ClientList = () => {
 
   return (
     <div className="bg-white shadow rounded-lg p-6">
-      <ul className="divide-y divide-gray-200">
+      <h2 className="text-2xl font-bold mb-4">Lista de Clientes</h2>
+      <ul className="divide-y divide-gray-200 p-4">
         {clients.map((client) => (
           <li
             key={client.id}
             className="flex justify-between items-center py-4 hover:bg-gray-50 transition-colors"
           >
-            <div>
-              <p className="text-lg font-semibold">
+            <div className="flex flex-col">
+              <span className="text-lg font-semibold">
                 <span className="font-bold">Name: </span>
                 {client.name}
-                <span className="ml-4 font-bold">Last Name: </span>
+              </span>
+              <span className="text-lg font-semibold">
+                <span className="font-bold">Last Name: </span>
                 {client.lastname}
-              </p>
+              </span>
             </div>
             <button
               onClick={() => handleDelete(client.id)}

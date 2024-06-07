@@ -15,7 +15,7 @@ export const createClientRepository = async (
 };
 
 export const deleteClientRepository = async (
-  clientId: string
+  clientId: number
 ): Promise<void> => {
   await api.delete(`${endpoints.clients}/${clientId}`);
 };

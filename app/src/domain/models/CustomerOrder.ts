@@ -1,10 +1,10 @@
 import { Client } from "./Client";
-import { Item } from "./Item";
+import { OrderItem } from "./OrderItem";
 
 export interface CustomerOrder {
-  id: number;
-  code: string;
+  id?: number;
+  code?: string;
   date: Date;
-  client: Client;
-  items: Item[];
+  client?: Client;
+  orderItems: OrderItem[];
 }
